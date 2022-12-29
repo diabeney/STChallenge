@@ -21,7 +21,7 @@ function ViewPost({ posts, deletePost, addPost }: ViewPostProps) {
 
   const handleButtonResponse = (res: "yes" | "cancel") => {
     if (res === "yes") {
-      deletePost(element!, "yes"); //asserting non-null, element cannot be null.
+      deletePost(element!, "yes"); //asserting non-null, element cannot be null here.
       navigate("/");
     }
     toggleShowModal();

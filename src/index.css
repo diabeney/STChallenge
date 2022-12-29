@@ -37,6 +37,13 @@ input {
   -webkit-border-before-style: none;
   font-size: inherit;
 }
+/* remove default rounding in safari */
+
+input[type=text],
+input[type=button] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 
 button {
   border: none;
