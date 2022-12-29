@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PostProps, id, createTimestamp } from "../Utils/Utilities";
 export type CreatePostProps = {
   addPost: (value: PostProps) => void;
@@ -6,6 +6,7 @@ export type CreatePostProps = {
 };
 function CreatePost({ addPost, existingPost }: CreatePostProps) {
   const [postValue, setPostValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleOnSubmit = () => {
     if (!postValue) return null;
@@ -31,6 +32,9 @@ function CreatePost({ addPost, existingPost }: CreatePostProps) {
 
   useEffect(() => {
     if (existingPost) setPostValue(existingPost.post + postValue);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }, []);
 
   return (
@@ -43,6 +47,7 @@ function CreatePost({ addPost, existingPost }: CreatePostProps) {
       >
         <input
           value={postValue}
+          ref={inputRef}
           type="text"
           placeholder="What's on your mind?"
           onChange={(e) => setPostValue(e.target.value)}
