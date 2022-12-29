@@ -34,7 +34,7 @@ function CreatePost({ addPost, existingPost }: CreatePostProps) {
   }, []);
 
   return (
-    <div>
+    <div className="create__post">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -44,11 +44,12 @@ function CreatePost({ addPost, existingPost }: CreatePostProps) {
         <input
           value={postValue}
           type="text"
+          placeholder="What's on your mind?"
           onChange={(e) => setPostValue(e.target.value)}
         />
       </form>
-      <section>
-        <button onClick={() => handleOnSubmit()}>
+      <section className="create__post-btn-wrapper flex">
+        <button className="btn add " onClick={() => handleOnSubmit()}>
           {existingPost ? "Save" : "Add Post"}
         </button>
       </section>

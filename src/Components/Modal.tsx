@@ -14,7 +14,9 @@ type EditContentProps = Required<CreatePostProps>;
 const DeleteContent = () => {
   return (
     <>
-      <h2 className="modal__content--title">Delete post?</h2>
+      <h2 style={{ marginBlock: "1rem" }} className="modal__content--title">
+        Delete post?
+      </h2>
       <p className="modal__content--message">
         Are you sure you want to delete this post? This action cannot be
         reversed.
@@ -41,16 +43,16 @@ export default function Modal({
         ) : (
           <DeleteContent />
         )}
-        <section className="modal__content--btns">
+        <section className="viewpost__btns-container flex">
           <button
             style={{ display: isEdit ? "none" : "block" }}
-            className="btn edit"
+            className="btn add"
             onClick={() => buttonResponse("yes")}
           >
             Yes
           </button>
           <button
-            className="btn cancel"
+            className="btn delete"
             onClick={() => buttonResponse("cancel")}
           >
             Cancel

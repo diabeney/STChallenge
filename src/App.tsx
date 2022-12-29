@@ -18,7 +18,7 @@ function App() {
           if (item.id === post.id) {
             navigate("/");
             return {
-              ...item,
+              ...post,
               post: post.post,
             };
           }
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <h1>Notely</h1>
+      <h3 className="logo">Notely</h3>
       <Routes>
         <Route
           path="/"

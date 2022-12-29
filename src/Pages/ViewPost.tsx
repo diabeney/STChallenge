@@ -30,32 +30,35 @@ function ViewPost({ posts, deletePost, addPost }: ViewPostProps) {
   if (!element) return <p>An error occurred</p>;
   return (
     <>
-      <div>
-        <button onClick={() => navigate(-1)}>
-          <RiArrowLeftLine size={26} />
-          Back
-        </button>
-        <h1>{element.post}</h1>
+      <button onClick={() => navigate(-1)} className="btn back ">
+        <RiArrowLeftLine size={16} />
+        Back
+      </button>
+      <div className="viewpost__wrapper">
+        <p>{element.post}</p>
         <div>
-          <section>
+          <section className="timestamp">
             <div>{element.timestamp}</div>
+            <span className="edittag">{element.edited ? "Edited" : null}</span>
           </section>
-          <section>
-            <button
-              onClick={() => {
-                setCanEdit(false);
-                toggleShowModal();
-              }}
-            >
-              Delete
-            </button>
+          <section className="viewpost__btns-container flex ">
             <button
               onClick={() => {
                 setCanEdit(true);
                 toggleShowModal();
               }}
+              className="btn add"
             >
               Edit
+            </button>
+            <button
+              onClick={() => {
+                setCanEdit(false);
+                toggleShowModal();
+              }}
+              className="btn delete "
+            >
+              Delete
             </button>
           </section>
         </div>

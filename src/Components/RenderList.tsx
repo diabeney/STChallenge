@@ -8,10 +8,10 @@ type ListProps = {
 function RenderList({ data, renderEmpty }: ListProps) {
   if (renderEmpty) return renderEmpty;
   return (
-    <ul>
+    <ul className="posts__container">
       {data.map((item) => {
         return (
-          <Link to={item.id} key={item.id}>
+          <Link to={item.id} key={item.id} className="post__item">
             <li>{item.post}</li>
           </Link>
         );

@@ -11,6 +11,9 @@ function Home({ data, addPost }: HomeProps) {
   return (
     <div>
       <CreatePost addPost={addPost} />
+      {data.length !== 0 && (
+        <h3 style={{ paddingInline: ".8rem" }}>All Posts({data.length})</h3>
+      )}
       <RenderList data={data} />
     </div>
   );
