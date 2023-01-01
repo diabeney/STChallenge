@@ -10,7 +10,7 @@ function App() {
   const [posts, setPosts] = useState(loadData("notely"));
   const navigate = useNavigate();
 
-  const betteraddNewPost = (post: PostProps) => {
+  const addNewPost = (post: PostProps) => {
     let updatedPosts;
     if (post.edited) {
       const filteredPost = [
@@ -45,16 +45,13 @@ function App() {
     <>
       <h3 className="logo">Notely</h3>
       <Routes>
-        <Route
-          path="/"
-          element={<Home data={posts} addPost={betteraddNewPost} />}
-        />
+        <Route path="/" element={<Home data={posts} addPost={addNewPost} />} />
         <Route
           path="/:id"
           element={
             <ViewPost
               posts={posts}
-              addPost={betteraddNewPost}
+              addPost={addNewPost}
               deletePost={deletePost}
             />
           }
