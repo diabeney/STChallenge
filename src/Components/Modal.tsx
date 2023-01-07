@@ -9,8 +9,6 @@ interface ModalProps {
   buttonResponse: (res: "yes" | "cancel") => void;
 }
 
-type EditContentProps = Required<CreatePostProps>;
-
 const DeleteContent = () => {
   return (
     <>
@@ -25,6 +23,7 @@ const DeleteContent = () => {
   );
 };
 
+type EditContentProps = Required<CreatePostProps>;
 const EditContent = ({ addPost, existingPost }: EditContentProps) => {
   return <CreatePost addPost={addPost} existingPost={existingPost} />;
 };
