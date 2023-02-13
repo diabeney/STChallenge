@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import ViewPost from "./Pages/ViewPost";
+import { _GENERATED_IDS_ } from "./Utils/Utilities";
 
 function App() {
   const [posts, setPosts] = useState(loadData("notely"));

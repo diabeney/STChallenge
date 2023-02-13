@@ -18,6 +18,7 @@ const generateRandomIds = function(){
     }
     randomId = randomLettersAndNumbers.join('');
     if(_GENERATED_IDS_.includes(randomId)) generateRandomIds()
+    _GENERATED_IDS_.push(randomId);
     return randomId;
 }
 
